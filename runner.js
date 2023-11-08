@@ -153,12 +153,12 @@ console.log('avg kelvin v2: ' + (times.reduce((acc, time) => acc + time, 0) / ti
 
 
 // times = [
-//     checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
+//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
 // ];
 
-// console.log('avg kelvin v1: ' + (times.reduce((acc, time) => acc + time, 0) / times.length).toFixed(2) + 'ms');
+// console.log('avg kelvin v3: ' + (times.reduce((acc, time) => acc + time, 0) / times.length).toFixed(2) + 'ms');

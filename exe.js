@@ -98,29 +98,17 @@ function contaLetraMaisFrequenteKelvin(palavra) {
 
 function contaLetraMaisFrequenteKelvin2(palavra) {
     const codes = [];
-    let maxCount = 0;
-    let maxCode = 0;
-    let minCodeI = 0;
-    let maxCodeI = 0;
+    let maxCount = 0, maxCode = 0;
     for (let i = 0; i < palavra.length; i++) {
-        const char = palavra[i];
-        const code = char.charCodeAt(0);
-        if (code < minCodeI) {
-            minCodeI = code;
-        }
-        if (code > maxCodeI) {
-            maxCodeI = code;
-        }
+        const code = palavra.charCodeAt(i);
         if (codes[code]) {
             codes[code] += 1;
         } else {
             codes[code] = 1;
         }
-    }
-    for (let i = minCodeI; i <= maxCodeI; i++) {
-        if (codes[i] > maxCount) {
-            maxCount = codes[i];
-            maxCode = i;
+        if (codes[code] > maxCount) {
+            maxCount = codes[code];
+            maxCode = code;
         }
     }
     return String.fromCharCode(maxCode);
