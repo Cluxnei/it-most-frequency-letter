@@ -96,6 +96,36 @@ function contaLetraMaisFrequenteKelvin(palavra) {
     return String.fromCharCode(maxCode);
 }
 
+function contaLetraMaisFrequenteKelvin2(palavra) {
+    const codes = [];
+    let maxCount = 0;
+    let maxCode = 0;
+    let minCodeI = 0;
+    let maxCodeI = 0;
+    for (let i = 0; i < palavra.length; i++) {
+        const char = palavra[i];
+        const code = char.charCodeAt(0);
+        if (code < minCodeI) {
+            minCodeI = code;
+        }
+        if (code > maxCodeI) {
+            maxCodeI = code;
+        }
+        if (codes[code]) {
+            codes[code] += 1;
+        } else {
+            codes[code] = 1;
+        }
+    }
+    for (let i = minCodeI; i <= maxCodeI; i++) {
+        if (codes[i] > maxCount) {
+            maxCount = codes[i];
+            maxCode = i;
+        }
+    }
+    return String.fromCharCode(maxCode);
+}
+
 function contaLetraMaisFrequenteLari(palavra) {
     const letterCount = {};
     let maxCount = 0;
@@ -180,4 +210,4 @@ function contaLetraMaisFrequenteRaul(string) {
 }
 
 
-module.exports = { contaLetraMaisFrequenteLari3, contaLetraMaisFrequenteRaul, contaLetraMaisFrequenteClayton, contaLetraMaisFrequentePedro, contaLetraMaisFrequenteLari, contaLetraMaisFrequenteLari2, contaLetraMaisFrequenteKelvin }
+module.exports = { contaLetraMaisFrequenteKelvin2, contaLetraMaisFrequenteLari3, contaLetraMaisFrequenteRaul, contaLetraMaisFrequenteClayton, contaLetraMaisFrequentePedro, contaLetraMaisFrequenteLari, contaLetraMaisFrequenteLari2, contaLetraMaisFrequenteKelvin }
