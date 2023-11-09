@@ -1,4 +1,4 @@
-const { contaLetraMaisFrequenteRaul, contaLetraMaisFrequenteKelvin2, contaLetraMaisFrequenteLari3, contaLetraMaisFrequenteClayton, contaLetraMaisFrequentePedro, contaLetraMaisFrequenteLari, contaLetraMaisFrequenteLari2, contaLetraMaisFrequenteKelvin } = require('./exe.js');
+const { contaLetraMaisFrequenteRaul, contaLetraMaisFrequenteKelvin3, contaLetraMaisFrequenteKelvin2, contaLetraMaisFrequenteLari3, contaLetraMaisFrequenteClayton, contaLetraMaisFrequentePedro, contaLetraMaisFrequenteLari, contaLetraMaisFrequenteLari2, contaLetraMaisFrequenteKelvin } = require('./exe.js');
 
 function shuffleWord(word) {
     return [...word].sort(() => Math.random() - 0.5).join('')
@@ -152,13 +152,13 @@ times = [
 console.log('avg kelvin v2: ' + (times.reduce((acc, time) => acc + time, 0) / times.length).toFixed(2) + 'ms');
 
 
-// times = [
-//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-//     checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-// ];
+times = [
+    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
+];
 
-// console.log('avg kelvin v3: ' + (times.reduce((acc, time) => acc + time, 0) / times.length).toFixed(2) + 'ms');
+console.log('avg kelvin v3: ' + (times.reduce((acc, time) => acc + time, 0) / times.length).toFixed(2) + 'ms');

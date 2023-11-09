@@ -114,6 +114,30 @@ function contaLetraMaisFrequenteKelvin2(palavra) {
     return String.fromCharCode(maxCode);
 }
 
+function contaLetraMaisFrequenteKelvin3(palavra) {
+    let charMask = 0;
+    const charCounts = [];
+    let maxCount = 0, maxChar = 0;
+
+    for (let i = 0; i < palavra.length; i++) {
+        const charCode = palavra.charCodeAt(i);
+        const charBit = 1 << charCode; // Create a bit mask for the current character
+
+        if ((charMask & charBit) === 0) { // Check if the character has already been seen
+            charMask |= charBit; // Set the corresponding bit in the mask to mark the character as seen
+            charCounts[charCode] = 1; // Initialize the count of the current character
+        } else { // If the character has been seen before, increment its count and update maxCount and maxChar if necessary
+            charCounts[charCode]++; // Increment the count of the current character
+            if (charCounts[charCode] > maxCount) {
+                maxCount = charCounts[charCode];
+                maxChar = charCode;
+            }
+        }
+    }
+    return String.fromCharCode(maxChar);
+}
+
+
 function contaLetraMaisFrequenteLari(palavra) {
     const letterCount = {};
     let maxCount = 0;
@@ -198,4 +222,4 @@ function contaLetraMaisFrequenteRaul(string) {
 }
 
 
-module.exports = { contaLetraMaisFrequenteKelvin2, contaLetraMaisFrequenteLari3, contaLetraMaisFrequenteRaul, contaLetraMaisFrequenteClayton, contaLetraMaisFrequentePedro, contaLetraMaisFrequenteLari, contaLetraMaisFrequenteLari2, contaLetraMaisFrequenteKelvin }
+module.exports = { contaLetraMaisFrequenteKelvin2, contaLetraMaisFrequenteKelvin3, contaLetraMaisFrequenteLari3, contaLetraMaisFrequenteRaul, contaLetraMaisFrequenteClayton, contaLetraMaisFrequentePedro, contaLetraMaisFrequenteLari, contaLetraMaisFrequenteLari2, contaLetraMaisFrequenteKelvin }
