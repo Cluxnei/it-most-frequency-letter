@@ -1,4 +1,4 @@
-const { contaLetraMaisFrequenteRaul, contaLetraMaisFrequenteKelvin3, contaLetraMaisFrequenteKelvin2, contaLetraMaisFrequenteLari3, contaLetraMaisFrequenteClayton, contaLetraMaisFrequentePedro, contaLetraMaisFrequenteLari, contaLetraMaisFrequenteLari2, contaLetraMaisFrequenteKelvin } = require('./exe.js');
+const { contaLetraMaisFrequenteRaul, contaLetraMaisFrequenteKelvin3, contaLetraMaisFrequenteKelvin4, contaLetraMaisFrequenteKelvin2, contaLetraMaisFrequenteLari3, contaLetraMaisFrequenteClayton, contaLetraMaisFrequentePedro, contaLetraMaisFrequenteLari, contaLetraMaisFrequenteLari2, contaLetraMaisFrequenteKelvin } = require('./exe.js');
 
 function shuffleWord(word) {
     return [...word].sort(() => Math.random() - 0.5).join('')
@@ -119,46 +119,17 @@ function checkExe(callback, useSameCases = true, casesCount = 100, showFailsCoun
     return executionTime
 }
 
-// checkExe(contaLetraMaisFrequenteClayton, true, 100, 2);
-// checkExe(contaLetraMaisFrequentePedro, true, 100, 2);
-// checkExe(contaLetraMaisFrequenteLari, false, 100, 2);
-// checkExe(contaLetraMaisFrequenteLari, false, 1000, 2);
-// checkExe(contaLetraMaisFrequenteLari, false, 10000, 2);
-// checkExe(contaLetraMaisFrequenteLari, false, 100000, 2);
+function getAvgExecutionTime(executionTimes, callback, casesCount) {
+    const times = [];
 
-// checkExe(contaLetraMaisFrequenteKelvin, false, 100, 2);
-// checkExe(contaLetraMaisFrequenteKelvin, false, 1000, 2);
-// checkExe(contaLetraMaisFrequenteKelvin, false, 10000, 2);
-let times = [
-    checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin, false, 100000, 2),
-];
+    for (let i = 0; i < executionTimes; i++) {
+        times.push(checkExe(callback, false, casesCount, 2));
+    }
 
-console.log('avg kelvin v1: ' + (times.reduce((acc, time) => acc + time, 0) / times.length).toFixed(2) + 'ms');
+    return (times.reduce((acc, time) => acc + time, 0) / times.length);
+}
 
-times = [
-    checkExe(contaLetraMaisFrequenteKelvin2, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin2, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin2, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin2, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin2, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin2, false, 100000, 2),
-];
-
-console.log('avg kelvin v2: ' + (times.reduce((acc, time) => acc + time, 0) / times.length).toFixed(2) + 'ms');
-
-
-times = [
-    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-    checkExe(contaLetraMaisFrequenteKelvin3, false, 100000, 2),
-];
-
-console.log('avg kelvin v3: ' + (times.reduce((acc, time) => acc + time, 0) / times.length).toFixed(2) + 'ms');
+console.log('avg kelvin v1: ' + getAvgExecutionTime(6, contaLetraMaisFrequenteKelvin, 100000).toFixed(4) + 'ms');
+console.log('avg kelvin v2: ' + getAvgExecutionTime(6, contaLetraMaisFrequenteKelvin2, 100000).toFixed(4) + 'ms');
+console.log('avg kelvin v3: ' + getAvgExecutionTime(6, contaLetraMaisFrequenteKelvin3, 100000).toFixed(4) + 'ms');
+console.log('avg kelvin v4: ' + getAvgExecutionTime(6, contaLetraMaisFrequenteKelvin4, 100000).toFixed(4) + 'ms');
